@@ -113,3 +113,9 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+
+body{
+ font: "Bookman", Georgia, "Times New Roman", serif;
+ background-color: #000000;
+
+}

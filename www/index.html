@@ -1,57 +1,88 @@
-<!DOCTYPE html>
-<!--
-    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
-
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
+<!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <!--<meta name="format-detection" content="telephone=no" />-->
-        <!--<meta name="msapplication-tap-highlight" content="no" />-->
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
 
-        <!--<script src="lib/bootstrap/js/bootstrap.min.js"></script>-->
-        <!--<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap-responsive.min.css"/>-->
-        <!--<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css" />-->
-        <script src="lib/jquery-2.1.1.min.js"></script>
-        <script src="js/login.js"></script>
-        <title>Login</title>
-    </head>
-    <body bgcolor="#dcdcdc">
-    <div id="mainAppDiv" style="height: auto; width: auto; border: solid 1px black">
-        <table align="center">
-            <tr>
-                <td>UserId</td>
-                <td><input type="text" maxlength="50" id="userId" name="userId" placeholder="UserId" required="true"></td>
-            </tr>
-            <tr>
-                <td>Password</td>
-                <td><input type="password" maxlength="50" id="userpassword" name="userpassword" placeholder="Password" required="true"></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="button" value="Login" onclick="login()"></td>
-            </tr>
-        </table>
+<head>
+
+    <title>unquote</title>
+
+    <meta name="viewport"
+          content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <script src="./lib/polymer/components/platform/platform.js"></script>
+
+    <link rel="import" href="./lib/polymer/components/font-roboto/roboto.html">
+    <link rel="import"
+          href="./lib/polymer/components/core-header-panel/core-header-panel.html">
+    <link rel="import"
+          href="./lib/polymer/components/core-toolbar/core-toolbar.html">
+    <!--<link rel="import"-->
+          <!--href="./lib/polymer/components/paper-tabs/paper-tabs.html">-->
+    <link rel="import" href="./lib/polymer/components/paper-input/paper-input.html">
+    <link rel="import" href="./lib/polymer/components/paper-button/paper-button.html">
+
+
+    <style>
+        html,body {
+            height: 100%;
+            margin: 0;
+            background-color: #E5E5E5;
+            font-family: 'RobotoDraft', sans-serif;
+        }
+        core-header-panel {
+            height: 100%;
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        core-toolbar {
+            background: #01212f;
+            color: white;
+        }
+        #tabs {
+            width: 100%;
+            margin: 0;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            text-transform: uppercase;
+        }
+        .container {
+            width: 80%;
+            margin: 50px auto;
+        }
+        @media (min-width: 481px) {
+            #tabs {
+                width: 200px;
+            }
+            .container {
+                width: 400px;
+            }
+        }
+        paper-button[raisedButton].colored {
+            background: #4285f4;
+            color: #fff;
+        }
+    </style>
+
+</head>
+
+<body>
+<core-header-panel>
+
+    <core-toolbar>
+        Expresso Mobile
+    </core-toolbar>
+    <br><br><br><br><br>
+    <div align="center">
+    <paper-input label="Email" type="email" error="Input is not an email!"></paper-input>
+    <paper-input label="Password" type="password"></paper-input><br>
+    <paper-button raisedButton class="colored" label="Login"></paper-button>
     </div>
 
-    </body>
+</core-header-panel>
+
+<script>
+
+</script>
+</body>
+
 </html>
