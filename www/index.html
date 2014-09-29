@@ -6,7 +6,7 @@
     <title>Login</title>
 
     <!--<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">-->
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=2, maximum-scale=2, minimum-scale=1, width=device-width, height=device-height" />
 
     <script src="lib/polymer/components/platform/platform.js"></script>
 
@@ -19,6 +19,9 @@
           <!--href="./lib/polymer/components/paper-tabs/paper-tabs.html">-->
     <link rel="import" href="lib/polymer/components/paper-input/paper-input.html">
     <link rel="import" href="lib/polymer/components/paper-button/paper-button.html">
+    <script src="lib/jquery-2.1.1.min.js"></script>
+    <script src="js/login.js"></script>
+
 
 
     <style>
@@ -59,7 +62,7 @@
             }
         }
         paper-button[raisedButton].colored {
-            background: #4285f4;
+            background: #f44a4a;
             color: #fff;
         }
     </style>
@@ -73,15 +76,14 @@
         Expresso Mobile
     </core-toolbar>
     <br><br><br><br><br>
-    <div align="center">
-    <paper-input label="Email" type="email" error="Input is not an email!"></paper-input>
-    <paper-input label="Password" type="password"></paper-input><br>
-    <paper-button raisedButton class="colored" label="Login"></paper-button>
+    <div align="center" id="mainAppDiv">
+    <paper-input label="Email" type="email" error="Input is not an email!" id="userId"></paper-input>
+    <paper-input label="Password" type="password" id="userpassword"></paper-input><br>
+    <paper-button raisedButton class="colored" label="Login" onclick="login()"></paper-button>
     </div>
 
 </core-header-panel>
 
-<script src="cordova.js"></script>
 </body>
 
 </html>
