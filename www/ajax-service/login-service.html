@@ -1,0 +1,30 @@
+<link rel="import" href="../lib/polymer/components/polymer/polymer.html">
+<link rel="import" href="../lib/polymer/components/core-ajax/core-ajax.html">
+
+<polymer-element name="login-service" attributes="pods" >
+    <template>
+
+
+        <core-ajax id="ajax"
+                   auto
+                   url="http://expres-stag.herokuapp.com/auth/signin"
+                   headers='{"Access-Control-Allow-Origin":"*"}'
+                   on-core-response="{{handleResponse}}"
+                   contentType="application/json"
+                   method="post"
+                   handleAs="json"
+                   body='{"username":"mnb", "password":"mnbmnb"}'>
+        </core-ajax>
+
+    </template>
+    <script>
+        Polymer('login-service', {
+            created: function() {
+                this.pods = [];
+            },
+            handleResponse : function(response){
+                console.log(response.detail.response);
+            }
+        });
+    </script>
+</polymer-element>

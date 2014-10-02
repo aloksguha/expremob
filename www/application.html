@@ -1,0 +1,83 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+
+    <script src="lib/polymer/components/platform/platform.js"></script>
+
+    <link rel="import" href="lib/polymer/components/core-scaffold/core-scaffold.html">
+    <link rel="import" href="lib/polymer/components/core-header-panel/core-header-panel.html">
+    <link rel="import" href="lib/polymer/components/core-menu/core-menu.html">
+    <link rel="import" href="lib/polymer/components/core-item/core-item.html">
+    <link rel="import" href="lib/polymer/components/polymer/polymer.html">
+
+    <link rel="import" href="views/pod-view.html">
+
+
+        <style>
+
+        html,body {
+            height: 100%;
+            margin: 0;
+            background-color: #E5E5E5;
+            font-family: 'RobotoDraft', sans-serif;
+        }
+
+
+        core-scaffold {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        .content {
+            background-color: #fff;
+            height: 5000px;
+            padding: 20px;
+        }
+
+        /* some default styles for mode="cover" on core-scaffold */
+        core-scaffold[mode=cover]::shadow core-header-panel::shadow #mainContainer {
+            left: 120px;
+        }
+
+        core-scaffold[mode=cover] .content {
+            margin: 20px 100px 20px 0;
+        }
+
+    </style>
+
+</head>
+
+
+
+<body unresolved>
+<core-scaffold>
+
+    <core-header-panel navigation flex mode="seamed">
+        <core-toolbar style="background-color: #222d40; color: #fff;">Menu</core-toolbar>
+        <core-menu>
+            <core-item icon="mail" label="Messages"></core-item><hr>
+            <core-item icon="shopping-cart" label="Orders"></core-item><hr>
+            <core-item icon="send" label="Brew"></core-item><hr>
+            <core-item icon="account-circle" label="Profile"></core-item><hr>
+            <core-item icon="exit-to-app" label="Logout"></core-item><hr>
+
+        </core-menu>
+    </core-header-panel>
+
+    <div tool>Expresso Mobile</div>
+
+    <div class="content">
+        <pod-view></pod-view>
+    </div>
+
+</core-scaffold>
+
+</body>
+</html>

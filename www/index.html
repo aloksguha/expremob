@@ -7,8 +7,9 @@
 
     <!--<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">-->
     <meta name="viewport" content="user-scalable=no, initial-scale=2, maximum-scale=2, minimum-scale=1, width=device-width, height=device-height" />
-
+    <script data-main="require-config" src="lib/require.js"></script>
     <script src="lib/polymer/components/platform/platform.js"></script>
+    <link rel="import" href="lib/polymer/components/polymer/polymer.html">
 
     <link rel="import" href="lib/polymer/components/font-roboto/roboto.html">
     <link rel="import"
@@ -19,8 +20,10 @@
           <!--href="./lib/polymer/components/paper-tabs/paper-tabs.html">-->
     <link rel="import" href="lib/polymer/components/paper-input/paper-input.html">
     <link rel="import" href="lib/polymer/components/paper-button/paper-button.html">
-    <script src="lib/jquery-2.1.1.min.js"></script>
+    <link rel="import" href="lib/polymer/components/core-ajax/core-ajax.html">
+
     <script src="js/login.js"></script>
+
 
 
 
@@ -37,7 +40,7 @@
             -webkit-overflow-scrolling: touch;
         }
         core-toolbar {
-            background: #01212f;
+            background: #000000;
             color: white;
         }
         #tabs {
@@ -73,16 +76,48 @@
 <core-header-panel>
 
     <core-toolbar>
-        Expresso Mobile
+        <div style="width: 100%; height: auto; text-align: center">
+       <img src="img/expressoLogo.jpg"></div>
     </core-toolbar>
+    <div align="center" id="mainAppDiv" style="overflow: auto">
     <br><br><br><br><br>
-    <div align="center" id="mainAppDiv">
-    <paper-input label="Email" type="email" error="Input is not an email!" id="userId"></paper-input>
-    <paper-input label="Password" type="password" id="userpassword"></paper-input><br>
-    <paper-button raisedButton class="colored" label="Login" onclick="login()"></paper-button>
+    <paper-input label="Email" type="text"  id="userId" style="text-align: left" required></paper-input>
+    <paper-input label="Password" type="password" id="userpassword"  style="text-align: left" required></paper-input><br>
+    <paper-button raisedButton class="colored" label="Start Brewing" onclick="loginMock()"></paper-button>
     </div>
 
+
+
 </core-header-panel>
+
+<script>
+  function loginMock(){
+      var userID = document.getElementById('userId');
+      var password = document.getElementById('userpassword');
+
+      if(userID.value === "test" && password.value === "test"){
+          window.location = "application.html"
+      }
+//      var loginObj = {};
+//      loginObj.user =   userID.value;
+//      loginObj.password = password.value;
+//
+//
+//
+//      console.log(loginObj);
+//
+//      var ajax = document.querySelector('core-ajax');
+//      ajax.body = loginObj;
+//      ajax.addEventListener("core-response",
+//              function(e) {
+//                  var data = e.detail.response;
+//                  document.getElementById("mainAppDiv").innerHTML = "";
+//                  document.getElementById("mainAppDiv").innerText =
+//              }
+//      );
+//     ajax.go();
+  }
+</script>
 
 </body>
 

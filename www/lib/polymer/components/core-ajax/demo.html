@@ -27,16 +27,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </template>
   
   <script>
-    document.addEventListener('polymer-ready', function() {
-      var ajax = document.querySelector("core-ajax");
-      ajax.addEventListener("core-response", 
-        function(e) {
-          document.querySelector('template').model = {
-            response: e.detail.response
-          };
-        }
-      );
-    });
+      document.addEventListener('polymer-ready', function() {
+          var ajax = document.querySelector("core-ajax");
+          ajax.addEventListener("core-response",
+                  function(e) {
+                      document.querySelector('template').model = {
+                          response: e.detail.response
+                      };
+                  }
+          );
+          ajax.go();
+      });
   </script>
 
 </body>

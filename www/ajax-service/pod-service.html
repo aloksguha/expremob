@@ -1,0 +1,30 @@
+<link rel="import" href="../lib/polymer/components/polymer/polymer.html">
+<link rel="import" href="../lib/polymer/components/core-ajax/core-ajax.html">
+
+<polymer-element name="pod-service" attributes="pods" >
+    <template>
+
+
+        <core-ajax id="ajax"
+                   auto
+                   url="../JSONFixtures/pod.json"
+                   on-core-response="{{handleResponse}}"
+                   contentType="application/json"
+                   handleAs="json">
+        </core-ajax>
+
+
+    </template>
+    <script>
+        Polymer('pod-service', {
+            created: function() {
+                this.pods = [];
+            },
+            handleResponse : function(response){
+                this.pods = this.$.ajax.response.slice(0);
+                console.log(this.pods);
+               // this.pods = response.detail.response;
+            }
+        });
+    </script>
+</polymer-element>

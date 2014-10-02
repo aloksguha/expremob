@@ -1,0 +1,93 @@
+[
+        {
+            "podName": "Event_Every_Third_Second1",
+            "icon": "blue",
+            "domain": "TimerChannel",
+            "description": "Generates an event after every 3 seconds",
+            "usage": null,
+            "createdDate": 0,
+            "updatedDate": 0,
+            "favoritePod": true,
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "time": {
+                        "type": "integer"
+                            }
+                }
+            }
+        },
+        {
+            "podName": "Event_Every_Third_Second2",
+            "icon": "blue",
+            "domain": "TimerChannel",
+            "description": "Generates an event after every 3 seconds",
+            "usage": null,
+            "createdDate": 0,
+            "updatedDate": 0,
+            "favoritePod": true,
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "time": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        {
+            "podName": "Event_Every_Third_Second",
+            "icon": "blue",
+            "domain": "TimerChannel",
+            "description": "Generates an event after every 3 seconds",
+            "usage": null,
+            "createdDate": 0,
+            "updatedDate": 0,
+            "favoritePod": true,
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "time": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        {
+            "podName": "Event_Every_Third_Second3",
+            "icon": "blue",
+            "domain": "TimerChannel",
+            "description": "Generates an event after every 3 seconds",
+            "usage": null,
+            "createdDate": 0,
+            "updatedDate": 0,
+            "favoritePod": true,
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "time": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        {
+            "podName": "Event_Every_Third_Second4",
+            "icon": "blue",
+            "domain": "TimerChannel",
+            "description": "Generates an event after every 3 seconds",
+            "usage": null,
+            "createdDate": 0,
+            "updatedDate": 0,
+            "favoritePod": true,
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "time": {
+                        "type": "integer"
+                    }
+                }
+            }
+        }
+
+    ]
