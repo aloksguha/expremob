@@ -7,6 +7,11 @@
 
     <!--<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">-->
     <meta name="viewport" content="user-scalable=no, initial-scale=2, maximum-scale=2, minimum-scale=1, width=device-width, height=device-height" />
+
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">-->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
     <script data-main="require-config" src="lib/require.js"></script>
     <script src="lib/polymer/components/platform/platform.js"></script>
     <link rel="import" href="lib/polymer/components/polymer/polymer.html">
@@ -86,6 +91,13 @@
     <paper-button raisedButton class="colored" label="Start Brewing" onclick="loginMock()"></paper-button>
     </div>
 
+    <core-ajax id="ajax"
+               url="http://http://10.97.102.113:36136/system/login"
+               headers='{"X-Requested-With": "XMLHttpRequest"}'
+               contentType="application/json"
+               method="post">
+    </core-ajax>
+
 
 
 </core-header-panel>
@@ -95,12 +107,17 @@
       var userID = document.getElementById('userId');
       var password = document.getElementById('userpassword');
 
-      if(userID.value === "test" && password.value === "test"){
-          window.location = "application.html"
+//      if(userID.value === "test" && password.value === "test"){
+//          window.location = "application.html"
+//      }
+      var loginObj = {};
+      loginObj.user =   userID.value;
+      loginObj.password = password.value;
+
+      if(loginObj.user === "a" && loginObj.password === "a"){
+          window.location = "application.html?token="+data.oauthToken;
       }
-//      var loginObj = {};
-//      loginObj.user =   userID.value;
-//      loginObj.password = password.value;
+   //   console.log(loginObj)
 //
 //
 //
@@ -110,9 +127,10 @@
 //      ajax.body = loginObj;
 //      ajax.addEventListener("core-response",
 //              function(e) {
-//                  var data = e.detail.response;
-//                  document.getElementById("mainAppDiv").innerHTML = "";
-//                  document.getElementById("mainAppDiv").innerText =
+//                  console.log(e)
+//                  var data = e;
+//                  alert(data);
+//                  //window.location = "application.html?token="+data.oauthToken;
 //              }
 //      );
 //     ajax.go();

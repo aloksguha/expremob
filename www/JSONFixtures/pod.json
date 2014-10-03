@@ -7,7 +7,7 @@
             "usage": null,
             "createdDate": 0,
             "updatedDate": 0,
-            "favoritePod": true,
+            "favoritePod": false,
             "schema": {
                 "type": "object",
                 "properties": {
@@ -25,7 +25,7 @@
             "usage": null,
             "createdDate": 0,
             "updatedDate": 0,
-            "favoritePod": true,
+            "favoritePod": false,
             "schema": {
                 "type": "object",
                 "properties": {

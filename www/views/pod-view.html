@@ -1,6 +1,7 @@
 <link rel="import" href="../lib/polymer/components/polymer/polymer.html">
 <link rel="import" href="../lib/polymer/components/core-icon-button/core-icon-button.html">
 <link rel="import" href="../ajax-service/pod-service.html">
+<link rel="import" href="../lib/polymer/components/paper-button/paper-button.html">
 <link rel="import" href="pod-design.html">
 
 
@@ -8,49 +9,83 @@
     <template>
         <style>
             .podDiv {
-                height: 2%;
+                height: 4%;
                 width: 25%;
                 background-color: #67a3da;
-                float: left;
-                -webkit-border-radius: 14px;
+                /*float: left;*/
+                -webkit-border-radius: 4px;
                 margin: 10px 10px 10px 10px;
+                overflow: hidden;
+            }
 
+            .favPodDiv {
+                height: 4%;
+                width: 25%;
+                background-color: #a2daaa;
+                /*float: left;*/
+                -webkit-border-radius: 4px;
+                margin: 10px 10px 10px 10px;
+                overflow: hidden;
             }
 
         </style>
 
         <pod-service id="service" pods="{{pods}}"></pod-service>
-        <template repeat="{{pod in pods}}">
-           <div class="podDiv"></div>
-        </template>
+        <!--<p align="center">My Favorite Pod</p>-->
+        <div  horizontal layout flex on-drop="{{drop}}" on-dragover="{{allowDrop}}">
+            <template repeat="{{pod in pods}}" >
+                <template if="{{pod.favoritePod}}">
+                    <div class="favPodDiv" style="text-align: center" draggable="true" id="{{pod.podName}}" on-dragstart="{{ dragstart }}">
+                        <p style="background-color: white">{{pod.podName}}</p>
+                        <p>{{pod.description}}</p>
+                        <button style="background: #f44a4a; color: #fff" onclick="{{useThisPod}}">Select</button>
+                    </div>
+                </template>
+            </template>
+       </div>
+       <hr>
+        <div  horizontal layout flex on-drop="{{drop}}" on-dragover="{{allowDrop}}">
+            <template repeat="{{pod in pods}}" >
+                <template if="{{!pod.favoritePod}}">
+                    <div class="podDiv" style="text-align: center" draggable="true" id="{{pod.podName}}" on-dragstart="{{ dragstart }}">
+                        <p style="background-color: white">{{pod.podName}}</p>
+                        <p>{{pod.description}}</p>
+                        <button style="background: #f44a4a; color: #fff" onclick="{{useThisPod}}">Select</button>
+                    </div>
+                </template>
+            </template>
+        </div>
 
-
-        <!--<div class="card-header" layout horizontal center>-->
-
-            <!--<content select="img"></content>-->
-            <!--<content select="h2"></content>-->
-
-        <!--</div>-->
-
-        <!--<core-icon-button-->
-                <!--id="favicon"-->
-                <!--icon="favorite"-->
-                <!--on-tap="{{favoriteTapped}}">-->
-        <!--</core-icon-button>-->
-
-        <!--<content></content>-->
     </template>
     <script>
-        Polymer('pod-view',{
-            publish: {
-                favorite: {
-                    value: false,
-                    reflect: true
-                }
+
+
+        Polymer({
+
+            useThisPod: function() {
+              alert("this pods");
+            }
+            ,
+
+            dragstart : function(ev){
+                console.log("drag started...");
+                ev.dataTransfer.setData("text/html", ev.target.id);
             },
-            favoriteTapped: function(event, detail, sender) {
-                this.favorite = !this.favorite;
-                this.fire('favorite-tap');
+
+            allowDrop : function(ev) {
+            ev.preventDefault();
+            },
+
+            drag: function(ev){
+             console.log("drag called..."+ev.target.id);
+              ev.dataTransfer.setData("text/html", ev.target.id);
+            },
+
+            drop : function(ev){
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text/html");
+            console.log("drop called..."+data);
+            ev.target.appendChild(this.shadowRoot.getElementById(data));
             }
         });
     </script>
